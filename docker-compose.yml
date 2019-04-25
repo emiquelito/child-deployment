@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  stuff-service:
+    build: ./stuff
+    ports:
+      - 80:80
+    environment:
+      - SQUASH_MASTER_DEPLOYMENT
+      - SQUASH_CHILD_DEPLOYMENT
+      - SQUASH_BRANCH_WITH_ID
+      - SQUASH_DOMAIN
+    command: bash ./run_server.sh
+    volumes:
+      - /assets:/assets

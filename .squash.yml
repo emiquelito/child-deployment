@@ -1,0 +1,18 @@
+deployments:
+  default:
+    vm_size: 1G
+    vm_storage_gb: 10G
+    ready_wait: 120
+    depends_on_match_branch: true
+    depends_on:
+      - child-deployment
+  multi_dependencies:
+    vm_size: 1
+    vm_storage_gb: 10
+    ready_wait: 120
+    filename: ./stuff/Dockerfile
+    dockerfileonly: true
+    depends_on_match_branch: true
+    depends_on:
+      - child-deployment
+      - child-deploymentB
