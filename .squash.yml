@@ -3,6 +3,5 @@ deployments:
     vm_size: 1G
     vm_storage_gb: 10G
     ready_wait: 120
-    depends_on_match_branch: true
     depends_on:
       - child-deploymentB
