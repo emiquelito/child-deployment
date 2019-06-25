@@ -8,4 +8,4 @@ deployments:
     vm_storage_gb: 10G
     ready_wait: 120
     depends_on:
-      - child-deploymentB/branch
+      - child-deploymentB
