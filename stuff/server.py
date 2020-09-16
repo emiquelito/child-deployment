@@ -24,7 +24,7 @@ def activate_job():
 def index():
     test_val = os.environ.get('TEST_VAL')
     client_api_id = os.environ.get('CLIENT_API_ID')
-    return '<body><a href="/master-status/">Master status</a><br/><br/><a href="/child-status/">Check child status</a><p>TEST_VAL: {test_val}</p><p>CLIENT_API_ID: {client_api_id}</p></body>'
+    return f'<body><a href="/master-status/">Master status</a><br/><br/><a href="/child-status/">Check child status</a><p>TEST_VAL: {test_val}</p><p>CLIENT_API_ID: {client_api_id}</p></body>'
 
 
 @app.route('/master-status/')
@@ -32,7 +32,7 @@ def master():
     logging.warning(request.referrer)
     master_url = os.environ.get('SQUASH_MASTER_DEPLOYMENT')
     if not master_url:
-        return f'<body><h3 style="text-align: center; margin-top: 20%;">Ooops! Looks like master deployment env variable is missing</h3></body>'
+        return '<body><h3 style="text-align: center; margin-top: 20%;">Ooops! Looks like master deployment env variable is missing</h3></body>'
     if 'https' not in master_url:
         master_url = f'https:{master_url}'
     try:
@@ -49,9 +49,8 @@ def master():
 def about():
     logging.warning(request.referrer)
     child_url = os.environ.get('SQUASH_CHILD_DEPLOYMENT')
-    master_url = os.environ.get('SQUASH_MASTER_DEPLOYMENT')
     if not child_url:
-        return f'<body><h1 style="text-align: center;">404</h1><h3 style="text-align: center;"><b>child deployment</b> env variable not found</h3></body>'
+        return '<body><h1 style="text-align: center;">404</h1><h3 style="text-align: center;"><b>child deployment</b> env variable not found</h3></body>'
     if 'https' not in child_url:
         child_url = f'https:{child_url}'
     try:
