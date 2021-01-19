@@ -1,1 +1,1 @@
-Master default branch
+stage default branch
