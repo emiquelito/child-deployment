@@ -22,7 +22,7 @@ def activate_job():
 
 @app.route('/')
 def index():
-    return '<body>Dummy 6<a href="/master-status/">Master status</a><br/><br/><a href="/child-status/">Check child status</a></body>'
+    return '<body>Dev<a href="/master-status/">Master status</a><br/><br/><a href="/child-status/">Check child status</a></body>'
 
 
 @app.route('/master-status/')
